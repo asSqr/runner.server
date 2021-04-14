@@ -17,5 +17,8 @@ jobs:
           test4: sh
         - test1: b
           test4: fish
+        - test1: b
+          test4: fish
+          test3: as
     steps:
     - run: echo '${{matrix.test1}}-${{matrix.test2}}-${{matrix.test3}}-${{matrix.test4}}'

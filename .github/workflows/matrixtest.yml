@@ -1,0 +1,15 @@
+on: push
+jobs:
+  matrixtest:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        test1: [a]
+        test2: [a,b,c]
+        include:
+        - test1: a
+          test3: sh
+        - test1: a
+          test3: bash
+    steps:
+    - run: echo '${{matrix.test1}}-${{matrix.test2}}-${{matrix.test3}}'

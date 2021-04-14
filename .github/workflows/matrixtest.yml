@@ -11,5 +11,7 @@ jobs:
           test3: sh
         - test1: a
           test3: bash
+        - test1: a
+          test4: bash
     steps:
-    - run: echo '${{matrix.test1}}-${{matrix.test2}}-${{matrix.test3}}'
+    - run: echo '${{matrix.test1}}-${{matrix.test2}}-${{matrix.test3}}-${{matrix.test4}}'

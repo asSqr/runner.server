@@ -795,8 +795,7 @@ namespace Runner.Client
                                                 if(ev.Result == TaskResult.Canceled || ev.Result == TaskResult.Abandoned || ev.Result == TaskResult.Failed) {
                                                     hasErrors = true;
                                                 }
-                                                if(j.TimeLineId != Guid.Empty) {
-                                                    timelineRecords.Remove(j.TimeLineId);
+                                                if(j.SessionId == Guid.Empty && j.TimeLineId != Guid.Empty && timelineRecords[j.TimeLineId].Count == 1 && timelineRecords.Remove(j.TimeLineId)) {
                                                     rj--;
                                                     jf++;
                                                 }

@@ -1,17 +1,17 @@
 ## Features
-Run you github actions workflows locally or use it together with gitea.
-Start `Runner.Server`(`.exe`) in the bin folder, you may need allow the executable to bind port 80.
-Configure the self-hosted runner to connect to http://localhost/runner/server with any registration token.
-Use `Runner.Client`(`.exe`) to schedule a workflow file with a webhook payload.
-Open http://localhost in you webbrowser to see your job.
+Added missing autosetup #3
+Allow cancel jobs #8
+Added container support to windows incl. windows container
 
 Please read https://github.com/ChristopherHX/runner.server#readme for more information.
-
 ## Bugs
-I guess it has a lot of undiscovered bugs
+Fixed runner.client didn't handle multiple job outputs correctly.
+Fixed runner client not exits, if job was cancelled
 
 ## Misc
-
+Added some features of act
+Allow to redirect any label to another one, e.g. `-P ubuntu-latest:-self-hosted` to run them on your machine regardless of the os.
+Allow to redirect any label to a container, e.g. `-P ubuntu-latest:<docker-image>` to run them on your machine within a docker image.
 
 ## Windows x64
 We recommend configuring the runner in a root folder of the Windows drive (e.g. "C:\actions-runner"). This will help avoid issues related to service identity folder permissions and long file path restrictions on Windows.
@@ -21,7 +21,7 @@ The following snipped needs to be run on `powershell`:
 # Create a folder under the drive root
 mkdir \actions-runner ; cd \actions-runner
 # Download the latest runner package
-Invoke-WebRequest -Uri https://github.com/actions/runner/releases/download/v<RUNNER_VERSION>/actions-runner-win-x64-<RUNNER_VERSION>.zip -OutFile actions-runner-win-x64-<RUNNER_VERSION>.zip
+Invoke-WebRequest -Uri https://github.com/ChristopherHX/runner/releases/download/v<RUNNER_VERSION>/actions-runner-win-x64-<RUNNER_VERSION>.zip -OutFile actions-runner-win-x64-<RUNNER_VERSION>.zip
 # Extract the installer
 Add-Type -AssemblyName System.IO.Compression.FileSystem ; 
 [System.IO.Compression.ZipFile]::ExtractToDirectory("$PWD\actions-runner-win-x64-<RUNNER_VERSION>.zip", "$PWD")
@@ -33,7 +33,7 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem ;
 # Create a folder
 mkdir actions-runner && cd actions-runner
 # Download the latest runner package
-curl -O -L https://github.com/actions/runner/releases/download/v<RUNNER_VERSION>/actions-runner-osx-x64-<RUNNER_VERSION>.tar.gz
+curl -O -L https://github.com/ChristopherHX/runner/releases/download/v<RUNNER_VERSION>/actions-runner-osx-x64-<RUNNER_VERSION>.tar.gz
 # Extract the installer
 tar xzf ./actions-runner-osx-x64-<RUNNER_VERSION>.tar.gz
 ```
@@ -44,7 +44,7 @@ tar xzf ./actions-runner-osx-x64-<RUNNER_VERSION>.tar.gz
 # Create a folder
 mkdir actions-runner && cd actions-runner
 # Download the latest runner package
-curl -O -L https://github.com/actions/runner/releases/download/v<RUNNER_VERSION>/actions-runner-linux-x64-<RUNNER_VERSION>.tar.gz
+curl -O -L https://github.com/ChristopherHX/runner/releases/download/v<RUNNER_VERSION>/actions-runner-linux-x64-<RUNNER_VERSION>.tar.gz
 # Extract the installer
 tar xzf ./actions-runner-linux-x64-<RUNNER_VERSION>.tar.gz
 ```
@@ -55,7 +55,7 @@ tar xzf ./actions-runner-linux-x64-<RUNNER_VERSION>.tar.gz
 # Create a folder
 mkdir actions-runner && cd actions-runner
 # Download the latest runner package
-curl -O -L https://github.com/actions/runner/releases/download/v<RUNNER_VERSION>/actions-runner-linux-arm64-<RUNNER_VERSION>.tar.gz
+curl -O -L https://github.com/ChristopherHX/runner/releases/download/v<RUNNER_VERSION>/actions-runner-linux-arm64-<RUNNER_VERSION>.tar.gz
 # Extract the installer
 tar xzf ./actions-runner-linux-arm64-<RUNNER_VERSION>.tar.gz
 ```
@@ -66,7 +66,7 @@ tar xzf ./actions-runner-linux-arm64-<RUNNER_VERSION>.tar.gz
 # Create a folder
 mkdir actions-runner && cd actions-runner
 # Download the latest runner package
-curl -O -L https://github.com/actions/runner/releases/download/v<RUNNER_VERSION>/actions-runner-linux-arm-<RUNNER_VERSION>.tar.gz
+curl -O -L https://github.com/ChristopherHX/runner/releases/download/v<RUNNER_VERSION>/actions-runner-linux-arm-<RUNNER_VERSION>.tar.gz
 # Extract the installer
 tar xzf ./actions-runner-linux-arm-<RUNNER_VERSION>.tar.gz
 ```

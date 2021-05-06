@@ -1,12 +1,14 @@
 ## Features
-- Reading act configuration files
+- openid connect for gitea
+- jwt token authentication
+- create pull_request_target event if received a pull_request payload from gitea
 
 Please read https://github.com/ChristopherHX/runner.server#readme for more information.
 
 ## Bugs
-- Fixed autosetup on mac
-- Fixed workflow not complete if --job or --matrix was used
-- Fixed docker container on macOs
+- Fix webhook handler
+- Fix ref of create / delete events
+- Fix pull_request event used workflow from master
 
 I guess it has a lot of undiscovered bugs
 

@@ -1,17 +1,17 @@
 ## Features
-- Reading act configuration files
+- Updated the cli to be more verbose
 
 Please read https://github.com/ChristopherHX/runner.server#readme for more information.
 
 ## Bugs
-- Fixed autosetup on mac
-- Fixed workflow not complete if --job or --matrix was used
-- Fixed docker container on macOs
+- Fix description of verbose
+- Fixed cache of 3.1.0
+- No newline after entering a secret
 
 I guess it has a lot of undiscovered bugs
 
 ## Misc
-
+- Disable auth for artifacts, it might not work
 
 ## Windows x64
 We recommend configuring the runner in a root folder of the Windows drive (e.g. "C:\actions-runner"). This will help avoid issues related to service identity folder permissions and long file path restrictions on Windows.

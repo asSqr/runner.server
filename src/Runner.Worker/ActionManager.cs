@@ -432,7 +432,7 @@ namespace GitHub.Runner.Worker
                             {
                                 // Store Id's for later load actions
                                 compositeAction.Steps[i].Id = _cachedEmbeddedStepIds[action.Id][i];
-                                if (string.IsNullOrEmpty(executionContext.Global.Variables.Get("DistributedTask.EnableCompositeActions")) && compositeAction.Steps[i].Reference.Type != Pipelines.ActionSourceType.Script)
+                                if (string.IsNullOrEmpty(executionContext.Global.Variables.Get("DistributedTask_EnableCompositeActions")) && compositeAction.Steps[i].Reference.Type != Pipelines.ActionSourceType.Script)
                                 {
                                     throw new Exception("`uses:` keyword is not currently supported.");
                                 }
@@ -1027,10 +1027,10 @@ namespace GitHub.Runner.Worker
                         }
                     }
 
-                    // TODO: remove once we remove the DistributedTask.EnableCompositeActions FF
+                    // TODO: remove once we remove the DistributedTask_EnableCompositeActions FF
                     foreach (var step in compositeAction.Steps)
                     {
-                        if (string.IsNullOrEmpty(executionContext.Global.Variables.Get("DistributedTask.EnableCompositeActions")) && step.Reference.Type != Pipelines.ActionSourceType.Script)
+                        if (string.IsNullOrEmpty(executionContext.Global.Variables.Get("DistributedTask_EnableCompositeActions")) && step.Reference.Type != Pipelines.ActionSourceType.Script)
                         {
                             throw new Exception("`uses:` keyword is not currently supported.");
                         }

@@ -2068,7 +2068,7 @@ runs:
             var variables = new Dictionary<string, VariableValue>();
             if (enableComposite)
             {
-                variables["DistributedTask.EnableCompositeActions"] = "true";
+                variables["DistributedTask_EnableCompositeActions"] = "true";
             }
             _ec.Object.Global.Variables = new Variables(_hc, variables);
             _ec.Setup(x => x.ExpressionValues).Returns(new DictionaryContextData());

@@ -5,6 +5,8 @@ on:
 jobs:
   package:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.build.outputs.version }}
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-dotnet@v1
@@ -70,7 +72,7 @@ jobs:
         path: src/Runner.Client/nupkg
     - name: Install
       run: |
-        dotnet tool install -g io.github.christopherhx.gharun --add-source src/Runner.Client/nupkg --version ${{steps.build.outputs.version}}
+        dotnet tool install -g io.github.christopherhx.gharun --add-source src/Runner.Client/nupkg --version ${{needs.package.outputs.version}}
     - name: Test
       run: |
         gharun -W testworkflows/testlocalcheckout.yml

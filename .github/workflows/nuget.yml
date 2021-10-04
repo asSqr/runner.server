@@ -57,6 +57,7 @@ jobs:
         - macos-latest
         dotnet-version:
         - '5.0.x'
+        - '5.0.200'
     runs-on: ${{matrix.os}}
     steps:
     - uses: actions/checkout@v2

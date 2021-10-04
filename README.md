@@ -1,4 +1,4 @@
-# GitHub Actions Runner + Server
+# GitHub Actions Runner + Server2
 
 [![Runner CI](https://github.com/ChristopherHX/runner.server/actions/workflows/build.yml/badge.svg)](https://github.com/ChristopherHX/runner.server/actions/workflows/build.yml)
 

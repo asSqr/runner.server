@@ -80,9 +80,5 @@ jobs:
         gharun -W testworkflows/testhashfiles.yml
         gharun -W testworkflows/dumpcontexts.yml
         gharun -P ubuntu-latest=-self-hosted -W testworkflows/matrixtest.yml --parallel 1
-        gharun -P ubuntu-latest=-self-hosted -W testworkflows/matrixtest.yml --parallel 0 && exit 1 || [[ "$?" = "1" ]]
         gharun -W testworkflows/artifact.yml
         gharun -W testworkflows/issue70/main.yml
-        gharun -W testworkflows/issue70/main2.yml && exit 1 || [[ "$?" = "1" ]]
-        gharun -W testworkflows/issue70/main3.yml && exit 1 || [[ "$?" = "1" ]]
-        gharun -W testworkflows/issue70/main4.yml && exit 1 || [[ "$?" = "1" ]]

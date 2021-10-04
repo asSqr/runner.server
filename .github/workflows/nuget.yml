@@ -54,7 +54,7 @@ jobs:
         - ubuntu-latest
         - macos-latest
         dotnet-version:
-        - '5.0.0'
+        - '5.0.9'
         - '5.0.x'
     runs-on: ${{matrix.os}}
     steps:

@@ -22,9 +22,9 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 # Run
 shopt -s nocasematch
 if [[ "$1" == "localRun" ]]; then
-    "$DIR"/bin/Runner.Listener $*
+    dotnet run -p ../../Runner.Listener $*
 else
-    "$DIR"/bin/Runner.Listener run $*
+    dotnet run -p ../../Runner.Listener run $*
 
 # Return code 3 means the run once runner received an update message.
 # Sleep 5 seconds to wait for the update process finish

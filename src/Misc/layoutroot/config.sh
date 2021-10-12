@@ -75,7 +75,7 @@ source ./env.sh
 
 shopt -s nocasematch
 if [[ "$1" == "remove" ]]; then
-    ./bin/Runner.Listener "$@"
+    dotnet run -p ../../Runner.Listener "$@"
 else
-    ./bin/Runner.Listener configure "$@"
+    dotnet run -p ../../Runner.Listener configure "$@"
 fi

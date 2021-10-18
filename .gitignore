@@ -1,5 +1,6 @@
 # build output
 **/bin
+!src/Runner.Listener/bin/Debug/net5.0/systemd.svc.sh.template.sh
 **/obj
 **/libs
 **/lib

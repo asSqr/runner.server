@@ -20,21 +20,21 @@ then
 
     message="Execute sudo ./bin/installdependencies.sh to install any missing Dotnet Core 3.0 dependencies."
 
-    ldd ./bin/libcoreclr.so | grep 'not found'
+    ldd /usr/share/dotnet/shared/Microsoft.NETCore.App/5.0.11/libcoreclr.so | grep 'not found'
     if [ $? -eq 0 ]; then
         echo "Dependencies is missing for Dotnet Core 3.0"
         echo $message
         exit 1
     fi
 
-    ldd ./bin/System.Security.Cryptography.Native.OpenSsl.so | grep 'not found'
+    ldd /usr/share/dotnet/shared/Microsoft.NETCore.App/5.0.11/libSystem.Security.Cryptography.Native.OpenSsl.so | grep 'not found'
     if [ $? -eq 0 ]; then
         echo "Dependencies is missing for Dotnet Core 3.0"
         echo $message
         exit 1
     fi
 
-    ldd ./bin/System.IO.Compression.Native.so | grep 'not found'
+    ldd /usr/share/dotnet/shared/Microsoft.NETCore.App/5.0.11/libSystem.IO.Compression.Native.so | grep 'not found'
     if [ $? -eq 0 ]; then
         echo "Dependencies is missing for Dotnet Core 3.0"
         echo $message

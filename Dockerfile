@@ -1,7 +1,13 @@
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS runtime
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 
-ADD . .
+RUN mkdir app
+ADD . ./app
+
+WORKDIR app
+
+ENV ASPNETCORE_URLS=http://+:5000
+EXPOSE 5000
 
 RUN cd src/ && dotnet msbuild ./dir.proj -t:GenerateConstant && cd Runner.Client && dotnet build --disable-parallel
 

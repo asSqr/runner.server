@@ -609,7 +609,7 @@ namespace Runner.Client
                         };
                         if(parameters.StartRunner) {
                             if(parameters.server == null) {
-                                parameters.server = "http://localhost:5000";
+                                parameters.server = "http://localhost:80";
                             }
                         } else {
                             Console.WriteLine("Starting Server...");
